@@ -28,7 +28,7 @@ def search(request):
             fmt = '%Y-%m-%d %H:%M:%S %Z%z'
             offset_fmt = '%z'
             abbr_fmt = '%Z'
-            search_response = {'name': n.tzid, 'time': time.strftime(fmt), 
+            search_response = {'name': n.tzid, #'time': time.strftime(fmt), 
                                'offset': time.strftime(offset_fmt),
                                'abbr': time.strftime(abbr_fmt) }
             return HttpResponse(simplejson.dumps(search_response),
