@@ -36,7 +36,7 @@ def search(request):
 
     else:
         form = SearchForm()
-        print "rendering"
+       
         return render_to_response('search.html', {
                 'form': form,
                 })

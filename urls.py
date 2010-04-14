@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # Example:
     # (r'^timezone/', include('timezone.foo.urls')),
 
-    (r'^timezone/lookup$', views.search),
+    (r'^$', views.search),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
