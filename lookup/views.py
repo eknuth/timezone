@@ -41,3 +41,16 @@ def search(request):
                 'form': form,
                 })
 
+
+def browse(request):  
+    all_tzid = Zone.objects.values_list('tzid').order_by('tzid').distinct()
+    
+    return render_to_response('browse.html', {
+            'all_tzid': all_tzid
+            })
+
+def map(request):  
+    all_tz = Zone.objects.all()
+    return render_to_response('browse.html', {
+            'all_tzid': all_tzid
+            })
