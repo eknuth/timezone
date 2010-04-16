@@ -8,9 +8,10 @@ from lookup import views
 urlpatterns = patterns('',
     # Example:
     # (r'^timezone/', include('timezone.foo.urls')),
+                       (r'^map/(?P<country>.*)$', views.map),
                        (r'^map$', views.map),
                        (r'^search$', views.search),
-                       (r'^$', views.browse),
+                       (r'^browse$', views.browse),
                        
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 

@@ -45,18 +45,21 @@ def search(request):
                 })
 
 
-def browse(request):  
+def browse(request, country=None):  
+
     all_tzid = Zone.objects.values_list('tzid').order_by('tzid').distinct()
     
     return render_to_response('browse.html', {
-            'all_tzid': all_tzid
+            'all_country_names': pytz.country_names.values()
+    
             })
 
-def map(request):  
-    all_tz = Zone.objects.all()
+
+def map(request, country=None):  
+  #  all_tz = Zone.objects.all()
     gz = GoogleZoom()
     print "starting to render"
     return render_to_response('map.html', {
-            'centroid': all_tz.unionagg().centroid, 
+           
             'zoom_level': 0,
             })

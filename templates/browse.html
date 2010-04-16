@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Timezone Lookup{% endblock %}
+{% block head %}
+
+{% endblock %}
+
+
+{% block content %}
+
+{% for tz in all_tz %}
+<ul>
+  <li>{{ tz.tzid }}</li>
+</ul> 
+{% endfor %}
+
+{% for tzid in all_tzid %}
+<ul>
+  <li>{{ tzid }}</li>
+</ul> 
+{% endfor %}
+
+
+{% for country in all_country_names %}
+<ul>
+  <li>{{ country }}</li>
+</ul> 
+{% endfor %}
+
+
+
+{% endblock %}
+
+
+
