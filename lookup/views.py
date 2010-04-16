@@ -1,7 +1,10 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
-import pytz
+
 from django.contrib.gis.geos import Point
+from django.contrib.gis.maps.google import GoogleZoom
+
+import pytz
 import simplejson
 import datetime
 
@@ -51,6 +54,9 @@ def browse(request):
 
 def map(request):  
     all_tz = Zone.objects.all()
-    return render_to_response('browse.html', {
-            'all_tzid': all_tzid
+    gz = GoogleZoom()
+    print "starting to render"
+    return render_to_response('map.html', {
+            'centroid': all_tz.unionagg().centroid, 
+            'zoom_level': 0,
             })

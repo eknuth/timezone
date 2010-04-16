@@ -8,7 +8,7 @@ from lookup import views
 urlpatterns = patterns('',
     # Example:
     # (r'^timezone/', include('timezone.foo.urls')),
-
+                       (r'^map$', views.map),
                        (r'^search$', views.search),
                        (r'^$', views.browse),
                        
