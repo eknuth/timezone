@@ -47,19 +47,22 @@ def search(request):
 
 def browse(request, country=None):  
 
-    all_tzid = Zone.objects.values_list('tzid').order_by('tzid').distinct()
-    
+    timezones = []
+    for zone in  Zone.objects.values_list('tzid').order_by('tzid').distinct():
+        timezones.append(str(zone[0]))
+
     return render_to_response('browse.html', {
-            'all_country_names': pytz.country_names.values()
+            'timezones': timezones
     
             })
 
 
-def map(request, country=None):  
+def map( request, timezone):  
   #  all_tz = Zone.objects.all()
     gz = GoogleZoom()
-    print "starting to render"
+    all_tz = Zone.objects.filter(tzid=timezone)
+
     return render_to_response('map.html', {
-           
+            'all_tz': all_tz,
             'zoom_level': 0,
             })

@@ -11,9 +11,18 @@
   mapTypeId: google.maps.MapTypeId.TERRAIN
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions)
-    google.maps.event.addListener(map, 'click', function(event) {
-        map.setCenter(event.latLng);
-  });
+  {% for tz in all_tz %}
+  polygon = new google.maps.Polygon({
+             paths: {{ tz.gpoly }},
+             strokeColor: "#FF0000",
+             strokeOpacity: 0.8,
+             strokeWeight: 2,
+             fillColor: "#FF0000",
+             fillOpacity: 0.35
+                   });
+  polygon.setMap(map);
+  {% endfor %}
+
  }
 
 </script>

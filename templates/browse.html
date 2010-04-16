@@ -21,9 +21,9 @@
 {% endfor %}
 
 
-{% for country in all_country_names %}
+{% for timezone in timezones %}
 <ul>
-  <li>{{ country }}</li>
+  <li><a href="/map/{{ timezone }}">{{ timezone }}</a></li>
 </ul> 
 {% endfor %}
 

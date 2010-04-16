@@ -8,8 +8,12 @@ class Zone(models.Model):
     objects = models.GeoManager()
 
     def gpoly(self):
-        gpoly = GPolygon(self.poly)
+        gpoly = GPolygon(self.geom[0])
         return gpoly.points.replace('GLatLng', 'google.maps.LatLng')
+
+    def __unicode__(self):
+        return self.tzid
+
 
 
 # Auto-generated `LayerMapping` dictionary for Zone model
