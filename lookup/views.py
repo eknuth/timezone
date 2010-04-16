@@ -61,8 +61,9 @@ def map( request, timezone):
   #  all_tz = Zone.objects.all()
     gz = GoogleZoom()
     all_tz = Zone.objects.filter(tzid=timezone)
-
+    centoid = all_tz.unionagg().centroid
     return render_to_response('map.html', {
             'all_tz': all_tz,
-            'zoom_level': 0,
+            'zoom': gz.get_zoom(all_tz.unionagg())
+
             })

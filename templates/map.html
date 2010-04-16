@@ -4,9 +4,10 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript">
   function initialize() {
-    var latlng = new google.maps.LatLng(40,40);
+    var latlng = new google.maps.LatLng({{ all_tz.unionagg.centroid.y}},
+                                        {{ all_tz.unionagg.centroid.x}});
     var myOptions = {
-      zoom: 2,
+      zoom: {{ zoom }},
       center: latlng,
   mapTypeId: google.maps.MapTypeId.TERRAIN
     };
